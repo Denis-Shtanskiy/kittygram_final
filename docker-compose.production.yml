@@ -18,7 +18,7 @@ services:
       - db
     volumes:
       - static:/backend_static
-      - media:/media
+      - media:/app/media
   frontend:
     image: denshtan/kittygram_frontend
     env_file: .env
@@ -30,6 +30,6 @@ services:
     env_file: .env
     volumes:
       - static:/static/
-      - media:/media/
+      - media:/app/media/
     ports:
       - 9000:80
