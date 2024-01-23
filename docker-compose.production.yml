@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  pg_data_production:
+  pg_data:
   static_volume:
   media_volume:
 
@@ -10,15 +10,15 @@ services:
     image: postgres:13.10
     env_file: .env
     volumes:
-      - pg_data_production:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
   backend:
     image: denshtan/kittygram_backend
     env_file: .env
+    depends_on:
+      - db
     volumes:
       - static_volume:/backend_static
       - media_volume:/media
-    depends_on:
-      - db
   frontend:
     image: denshtan/kittygram_frontend
     env_file: .env
@@ -28,8 +28,8 @@ services:
   gateway:
     image: denshtan/kittygram_gateway
     env_file: .env
+    ports:
+      - 9000:80
     volumes:
       - static_volume:/static/
       - media_volume:/media/
-    ports:
-      - 9000:80
