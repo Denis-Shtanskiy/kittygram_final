@@ -2,8 +2,8 @@
 import os
 from pathlib import Path
 
+from django.core.management.utils import get_random_secret_key
 from dotenv import load_dotenv
-from gjango.core.management.utils import get_random_secret_key
 
 load_dotenv()
 
