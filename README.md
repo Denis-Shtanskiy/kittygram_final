@@ -42,7 +42,7 @@ pip install -r backend/requirements.txt
 cd kittygram_final
 ```
 ### .env
-Для корректной работы backend-части проекта, создайте в корне файл `.env` и заполните его переменныйми по примеру из файла `.env.example` или по примеру ниже:
+Для корректной работы backend-части проекта, создайте в корне файл `.env` и заполните его переменными по примеру из файла `.env.example` или по примеру ниже:
 ```bash
 POSTGRES_DB=kittygram
 POSTGRES_USER=kittygram_user
