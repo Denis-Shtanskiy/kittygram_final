@@ -50,6 +50,9 @@ POSTGRES_PASSWORD=kittygram_password
 DB_NAME=kittygram
 DB_HOST=kitty
 DB_PORT=12345
+SECRET_KEY=safq12432tdzxqxght_!erks       # стандартный ключ, который создается при старте проекта
+DEBUG=True
+ALLOWED_HOSTS=['IP_адрес_сервера', '127.0.0.1', 'localhost', 'домен_сервера']
 ```
 
 Установите [docker compose](https://www.docker.com/) на свой компьютер.
@@ -71,7 +74,7 @@ __Для работы на удаленном сервере потребует�
    ```bash
    server {
     server_name IP_адрес_сервера домен_сервера;
-    
+
     location / {
         proxy_pass http://127.0.0.1:9000;
     }
@@ -107,7 +110,7 @@ sudo docker compose -f docker-compose.production.yml up -d # Запускаем 
 
 __Workflow__
 Для постоянного использования CI/CD интеграции и деплоя в репозитории проекта на GitHub в разделе Actions
-перейти `Settings/Secret and variables/Actions` нужно прописать переменные окружения для доступа к сервисам - _Secrets_: 
+перейти `Settings/Secret and variables/Actions` нужно прописать переменные окружения для доступа к сервисам - _Secrets_:
 
 ```
 DOCKER_USERNAME                # логин в DockerHub
@@ -129,6 +132,5 @@ TELEGRAM_TOKEN                 # токен бота (получить токе�
 
 
 #### Автор
-Denis Shtanskiy 
+Denis Shtanskiy
 Telegram: @shtanskiy
-
